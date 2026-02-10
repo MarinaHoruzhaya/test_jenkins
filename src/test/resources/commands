@@ -1,0 +1,47 @@
+//для запуска selenoid
+docker run -d --name selenoid \
+  --platform linux/amd64 \
+  -p 4444:4444 \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v $(pwd)/config/:/etc/selenoid/:ro \
+  aerokube/selenoid:latest-release
+
+// для запуска ui
+docker run -d --name selenoid-ui \
+  -p 8080:8080 \
+  --link selenoid \
+  aerokube/selenoid-ui --selenoid-uri http://selenoid:4444
+
+  //поднять хаб
+  docker run -d --name selenium-hub -p 4445:4444 selenium/hub:4.22.0
+
+  //поднять ноду
+docker run -d --name draft-chrome-2 --net grid -e SE_EVENT_BUS_HOST=selenium-hub -e SE_EVENT_BUS_PUBLISH_PORT=4442 -e SE_EVENT_BUS_SUBSCRIBE_PORT=4443 selenium/node-chrome:4
+
+
+  ./gradlew clean test -DsuiteXmlFile=src/test/resources/testng.xml
+
+
+
+  version: "3.8"
+
+  services:
+    hub:
+      image: selenium/hub:4
+      container_name: grid-hub
+      ports:
+
+      - "4445:4444" # UI Grid будет доступен на http://localhost:4445
+      platform: linux/amd64
+    chrome:
+      image: selenium/node-chrome:4
+      shm_size: 2g
+      depends_on:
+
+      - hub
+      platform: linux/amd64
+      environment:
+        - SE_EVENT_BUS_HOST=hub
+        - SE_EVENT_BUS_PUBLISH_PORT=4442
+        - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+        - SE_NODE_MAX_SESSIONS=1   # одна с

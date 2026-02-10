@@ -1,0 +1,12 @@
+{
+  "chrome": {
+    "default": "118.0",
+    "versions": {
+      "118.0": {
+        "image": "seleniarm/standalone-chromium:latest",
+        "port": "4444",
+        "path": "/"
+      }
+    }
+  }
+}
