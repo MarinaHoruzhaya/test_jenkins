@@ -9,19 +9,19 @@ stages {
 
     stage('Checkout') {
         steps {
-            git branch: 'main', url: 'https://github.com/USERNAME/REPO_NAME.git'
+            git branch: 'main', url: 'https://github.com/MarinaHoruzhaya/test_jenkins.git'
         }
     }
 
     stage('Build') {
         steps {
-            sh 'mvn clean compile'
+            sh './ gradlew clean build -x test'
         }
     }
 
     stage('Tests') {
         steps {
-            sh 'mvn test'
+            sh './gradlew test'
         }
     }
 
@@ -44,7 +44,7 @@ post {
             Job: ${env.JOB_NAME}
             Link: ${env.BUILD_URL}
             """,
-            to: "your_email@gmail.com"
+            to: "marinakh192@gmail.com"
         )
     }
 }
