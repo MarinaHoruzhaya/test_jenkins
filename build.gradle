@@ -1,7 +1,6 @@
 plugins {
     id 'java'
-    id 'io.qameta.allure' version '3.0.1' // Use the latest version from Gradle Plugin Portal
-
+    id 'io.qameta.allure' version '2.11.2' // стабильная версия плагина Allure для Gradle
 }
 
 group = 'org.example'
@@ -13,12 +12,12 @@ repositories {
 }
 
 dependencies {
+    // Selenide
     implementation 'com.codeborne:selenide:7.9.4'
 
 // JUnit 5
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-
 
 // Allure
     implementation 'io.qameta.allure:allure-selenide:2.31.0'
@@ -33,5 +32,10 @@ test {
     testLogging {
         events "passed", "skipped", "failed"
     }
+}
+
+// Конфигурация плагина Allure
+allure {
+    version = '2.31.0'                 // версия Allure Commandline (для генерации отчёта)
 }
 
