@@ -15,6 +15,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
+import java.util.List;
+import java.util.Map;
+
 import static com.codeborne.selenide.Selenide.open;
 
 public class BaseTest {
@@ -30,7 +33,20 @@ public class BaseTest {
 
         ChromeOptions options = new ChromeOptions();
         Configuration.headless = true;
-        //options.addArguments("--headless=new");
+
+        // Опции Chrome
+        Configuration.browserCapabilities.setCapability(
+                "goog:chromeOptions",
+                Map.of(
+                        "args", List.of(
+                                "--no-sandbox",           // важно для CI
+                                "--disable-dev-shm-usage",
+                                "--disable-gpu",
+                                "--window-size=1920,1080"
+                        )
+                )
+        );
+
         options.setPageLoadStrategy(PageLoadStrategy.EAGER);
 
         Configuration.browserCapabilities = options;
