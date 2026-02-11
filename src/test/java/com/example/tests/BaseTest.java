@@ -26,7 +26,7 @@ public class BaseTest {
         Configuration.browserSize = "1920x1080";
         //Configuration.remote = "http://localhost:4444/wd/hub";;
         // Для Selenium Grid
-        Configuration.remote = "http://localhost:4445/wd/hub";
+      //  Configuration.remote = "http://localhost:4445/wd/hub";
 
         ChromeOptions options = new ChromeOptions();
         //options.addArguments("--headless=new");
