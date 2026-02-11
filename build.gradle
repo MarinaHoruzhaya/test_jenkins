@@ -1,1 +1,29 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.11.2'
+}
 
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation 'com.codeborne:selenide:7.9.4'
+    testImplementation 'org.testng:testng:7.7.1'
+    implementation 'io.qameta.allure:allure-selenide:2.22.0'
+    implementation 'io.qameta.allure:allure-testng:2.22.0'
+    testImplementation 'com.mysql:mysql-connector-j:8.4.0'
+}
+
+    allure {
+    version = '2.22.0'
+
+}
+
+test {
+    useTestNG()
+}
