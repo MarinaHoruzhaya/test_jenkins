@@ -29,6 +29,7 @@ public class BaseTest {
       //  Configuration.remote = "http://localhost:4445/wd/hub";
 
         ChromeOptions options = new ChromeOptions();
+        Configuration.headless = true;
         //options.addArguments("--headless=new");
         options.setPageLoadStrategy(PageLoadStrategy.EAGER);
 
