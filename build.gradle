@@ -28,10 +28,5 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    testLogging {
-        events "passed", "skipped", "failed"
-    }
-
-    // Указываем, куда писать результаты Allure
     systemProperty 'allure.results.directory', file("$buildDir/allure-results").absolutePath
 }
