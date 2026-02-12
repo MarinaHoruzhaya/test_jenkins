@@ -1,14 +1,16 @@
 package com.example.tests.dbTest;
 
-import org.testng.annotations.Test;
+
+
+import org.junit.jupiter.api.Test;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.example.db.DBConnection.getConnection;
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class CrudTest {
 

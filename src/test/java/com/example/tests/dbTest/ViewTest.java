@@ -1,6 +1,7 @@
 package com.example.tests.dbTest;
 
-import org.testng.annotations.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -8,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import static org.example.db.DBConnection.getConnection;
-import static org.testng.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ViewTest {
     @Test

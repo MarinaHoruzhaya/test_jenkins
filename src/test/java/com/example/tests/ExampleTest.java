@@ -1,7 +1,7 @@
 package com.example.tests;
 
 import io.qameta.allure.Description;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -15,7 +15,7 @@ public class ExampleTest extends TestMethods {
 
     String text = "Привет. Меня зовут Марина";
 
-    @Test(testName = "Эмуляция загрузки файла")
+    @Test()
     @Description("Переход на сайт с формой загрузки и загрузка файла")
     public void uploadFileTest() {
         File file = new File("src/test/resources/test-upload.txt");
@@ -32,7 +32,7 @@ public class ExampleTest extends TestMethods {
         //  $("#uploaded-files").shouldHave(text("test-upload.txt"));
     }
 
-    @Test(testName = "Эмуляция загрузки файла")
+    @Test()
     @Description("Переход на сайт с формой загрузки и загрузка файла")
     public void uploadFileTest2() throws FileNotFoundException {
         File file = new File("src/test/resources/test_en.txt");
@@ -58,7 +58,7 @@ public class ExampleTest extends TestMethods {
         // $("#uploaded-files").shouldHave(text("test-en.txt"));
     }
 
-    @Test(testName = "Эмуляция загрузки файла")
+    @Test()
     @Description("Переход на сайт с формой загрузки и загрузка файла")
     public void uploadFileTest3() {
         File file = new File("src/test/resources/test_en.txt");

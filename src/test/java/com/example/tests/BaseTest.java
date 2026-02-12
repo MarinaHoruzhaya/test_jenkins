@@ -2,18 +2,11 @@ package com.example.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverRunner;
-import org.example.DocumentationPage;
-import org.example.MainPage;
-import org.example.QuestionPage;
-import org.openqa.selenium.MutableCapabilities;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
 
 import java.util.List;
 import java.util.Map;
@@ -23,8 +16,8 @@ import static com.codeborne.selenide.Selenide.open;
 public class BaseTest {
 
 
-    @BeforeSuite
-    public void setUpSuite() {
+    @BeforeAll
+    public static void setUpSuite() {
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
         //Configuration.remote = "http://localhost:4444/wd/hub";;
@@ -53,12 +46,12 @@ public class BaseTest {
     }
 
 
-    @BeforeMethod
+    @BeforeEach
     public void setUp() {
         open("https://ru.selenide.org/");
     }
 
-    @AfterMethod
+    @AfterEach
     public void tearDown() {
         Selenide.closeWebDriver();
     }

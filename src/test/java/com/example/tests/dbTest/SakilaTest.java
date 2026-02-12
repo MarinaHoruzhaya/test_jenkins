@@ -1,12 +1,12 @@
 package com.example.tests.dbTest;
 
 import org.example.db.DBConnection;
-import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
+import org.junit.jupiter.api.Test;
+
 
 import java.sql.Connection;
 
-import static org.testng.AssertJUnit.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class SakilaTest {
 

@@ -1,18 +1,12 @@
 package com.example.tests;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import jdk.jfr.Description;
 import org.example.DocumentationPage;
 import org.example.MainPage;
 import org.example.QuestionPage;
-import org.testng.Assert;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
 
 import static com.codeborne.selenide.Condition.text;
@@ -20,6 +14,8 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SelenideTest extends BaseTest {
     private DocumentationPage documentationPage = new DocumentationPage();
@@ -33,7 +29,7 @@ public class SelenideTest extends BaseTest {
         mainPage.clickQuestionButton();
         questionPage.clickPageObjectInfo();
 
-        Assert.assertEquals("Page Objects - это просто!", questionPage.getTextOfPageObjectTitle());
+        assertEquals("Page Objects - это просто!", questionPage.getTextOfPageObjectTitle());
     }
 
     @Test()
@@ -43,7 +39,7 @@ public class SelenideTest extends BaseTest {
         mainPage.clickDocumentationButton();
         documentationPage.clickOpenURLMethod();
 
-        Assert.assertEquals("Method Details", documentationPage.getTextOfMethodDetails());
+        assertEquals("Method Details", documentationPage.getTextOfMethodDetails());
     }
 
     @Test()
@@ -67,7 +63,7 @@ public class SelenideTest extends BaseTest {
         $("a[href*='github.com/selenide/selenide']").shouldBe(visible);
     }
 
-    @Test( testName = "Проверка открытия GitHub в новой вкладке")
+    @Test()
     @Description("Клик по ссылке GitHub и проверка новой вкладки")
     public void checkGitHubLinkOpensNewTab() {
         String originalWindow = getWebDriver().getWindowHandle();
@@ -85,7 +81,7 @@ public class SelenideTest extends BaseTest {
             }
         }
 
-        Assert.assertTrue(
+        assertTrue(
                 webdriver().driver().url().contains("github.com/selenide/selenide"),
                 "URL должно содержать GitHub репозиторий Selenide"
         );
