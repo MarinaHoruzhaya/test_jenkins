@@ -22,8 +22,8 @@ jobs:
       - name: Разрешить права на gradlew
         run: chmod +x ./gradlew
 
-      - name: Запуск тестов (включая UI)
-        run: ./gradlew test --no-daemon --info
+      - name: Запуск тестов
+        run: ./gradlew test -Dselenide.headless=true -Dselenide.browserSize=1920x1080
 
       - name: Показать результаты
         if: always()
