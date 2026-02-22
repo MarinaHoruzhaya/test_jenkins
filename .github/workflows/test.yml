@@ -33,6 +33,7 @@ jobs:
           sudo ln -s /opt/allure/bin/allure /usr/bin/allure
 
       - name: Generate allure report
+        if: always()
         run: allure generate build/allure-results --clean -o build/allure-report
 
       - name: Upload Allure Report
