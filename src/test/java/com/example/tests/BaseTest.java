@@ -27,19 +27,6 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
         Configuration.headless = true;
 
-        // Опции Chrome
-        Configuration.browserCapabilities.setCapability(
-                "goog:chromeOptions",
-                Map.of(
-                        "args", List.of(
-                                "--no-sandbox",           // важно для CI
-                                "--disable-dev-shm-usage",
-                                "--disable-gpu",
-                                "--window-size=1920,1080"
-                        )
-                )
-        );
-
         options.setPageLoadStrategy(PageLoadStrategy.EAGER);
 
         Configuration.browserCapabilities = options;
