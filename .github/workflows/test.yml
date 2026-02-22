@@ -37,6 +37,7 @@ jobs:
         run: allure generate build/allure-results --clean -o build/allure-report
 
       - name: Check allure report
+        if: always()
         run: ls -l build/allure-report
 
       - name: Deploy Allure Report
