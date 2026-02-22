@@ -36,6 +36,12 @@ jobs:
         if: always()
         run: allure generate build/allure-results --clean -o build/allure-report
 
+      - name: Deploy Allure Report
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: build/allure-report
+
       - name: Upload Allure Report
         if: always()
         uses: actions/upload-artifact@v4
