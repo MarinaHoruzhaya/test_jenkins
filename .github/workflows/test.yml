@@ -24,6 +24,7 @@ jobs:
         run: ./gradlew clean test
 
       - name: Install Allure
+        if: always()
         run:
           sudo apt-get install -y wget unzip
           wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.37.0/allure-commandline-2.37.0.zip
@@ -35,6 +36,7 @@ jobs:
         run: allure generate build/allure-results --clean -o build/allure-report
 
       - name: Upload Allure Report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
