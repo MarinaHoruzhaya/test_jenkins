@@ -95,7 +95,7 @@ jobs:
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: Allure Test Report - ${{ github.sha }}
           body: Автоматически сгенерированный отчёт за коммит ${{ github.sha }}
-          to: marinakh192@gmail.com, tstostkhm4@test-rbru.org
+          to: hotuzhayam@gmail.com
           from: ${{ secrets.EMAIL_USERNAME }}
           attachments: allure-report.zip
 
