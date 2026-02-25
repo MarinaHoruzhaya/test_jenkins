@@ -87,18 +87,17 @@ jobs:
         run: |
           zip -r allure-report.zip _site/
 
-      - name: Send email via Gmail
-        uses: dawidd6/action-send-mail@v3
+      - name: Отправить в Telegram
+        uses: appleboy/telegram-action@v1
         with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: Allure Test Report - ${{ github.sha }}
-          body: Hello
-          to: hotuzhayam@gmail.com
-          from: ${{ secrets.EMAIL_USERNAME }}
-          attachments: allure-report.zip
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: |
+              **Результат прогона тестов**
+              
+              🔗 [Посмотреть отчёт](https://marinahoruzhaya.github.io/test_jenkins/)
+
+          format: markdown
 
 
 
