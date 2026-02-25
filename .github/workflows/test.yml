@@ -47,12 +47,11 @@ jobs:
       - name: Download all workflow artifact
         uses: actions/download-artifact@v4
       - run: allure generate -c allure-results -o _site
-      - name: Store generated report
+      - name: Save generated report
         uses: actions/upload-artifact@v4
         with:
           name: _site
           path: _site
-
 
   publish-report:
     if: always()
@@ -92,8 +91,5 @@ jobs:
           message: |
               **Результат прогона тестов**
               [Посмотреть отчёт](https://marinahoruzhaya.github.io/test_jenkins/)
-
-          format: markdown
-
 
 
