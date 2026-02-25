@@ -24,7 +24,8 @@ jobs:
         run: ./gradlew clean test
 
       - name: Save allure results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
+
         with:
           name: allure-results
           path:
@@ -65,37 +66,5 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1.2.9
 
-          
-
-#      - name: Install Allure
-#        if: always()
-#        run: |
-#          sudo apt-get install -y wget unzip
-#          wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.37.0/allure-commandline-2.37.0.zip
-#          unzip allure-commandline-2.37.0.zip
-#          sudo mv allure-2.37.0 /opt/allure
-#          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
-#
-#      - name: Generate allure report
-#        if: always()
-#        run: allure generate build/allure-results --clean -o build/allure-report
-#
-#      - name: Check allure report
-#        if: always()
-#        run: ls -l build/allure-report
-#
-#      - name: Deploy Allure Report
-#        if: always()
-#        uses: peaceiris/actions-gh-pages@v3
-#        with:
-#            github_token: ${{ secrets.GH_PAT }}
-#            publish_dir: build/allure-report
-#
-#      - name: Upload Allure Report
-#        if: always()
-#        uses: actions/upload-artifact@v4
-#        with:
-#          name: allure-report
-#          path: build/allure-report
 
 
