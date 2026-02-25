@@ -3,7 +3,7 @@ name: Autotest
 on:
   push:
   workflow_dispatch:
-  shedule:
+  schedule:
     - cron: '0 9 * * *'
 
 jobs:
