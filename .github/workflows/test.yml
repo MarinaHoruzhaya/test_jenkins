@@ -6,6 +6,11 @@ on:
   schedule:
     - cron: '0 9 * * *'
 
+  permissions:
+    contents: read
+    pages: write
+    id-token: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -90,6 +95,6 @@ jobs:
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           message: |
               **Результат прогона тестов**
-              [Посмотреть отчёт](https://marinahoruzhaya.github.io/test_jenkins/)
+              Посмотреть отчёт: https://marinahoruzhaya.github.io/test_jenkins/
 
 
