@@ -95,18 +95,7 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: Allure Test Report - ${{ github.sha }}
-          body: |
-            Привет!
-            
-            Отчёт по тестированию за коммит ${{ github.sha }} доступен по ссылке:
-            
-            🔗 https://marinahoruzhaya.github.io/test_jenkins/
-            
-            Статус: ${{ job.status }}
-            Время: ${{ steps.date.outputs.value }}
-            
-            С уважением,
-            Тест-бот
+          body: Hello
           to: hotuzhayam@gmail.com
           from: ${{ secrets.EMAIL_USERNAME }}
           attachments: allure-report.zip
