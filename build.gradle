@@ -28,5 +28,5 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    systemProperty 'allure.results.directory', file("$buildDir/allure-results").absolutePath
+    systemProperty "allure.results.directory", "allure-results"
 }
