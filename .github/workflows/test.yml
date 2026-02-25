@@ -58,7 +58,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: _site
-          path: _site/
+          path: _site
 
 
   publish-report:
@@ -73,7 +73,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1.2.9
+        uses: actions/deploy-pages@v4
 
 
 
