@@ -15,12 +15,10 @@ public class MyExceptionTest {
         }
     }
 
-    public static void main(String[] args) {
-        try {
+    public static void main(String[] args) throws MyException {
+
             validate(17);
-        } catch (MyException e) {
-            System.out.println("мое исключение поймано " + e.getMessage());
-        }
+
 
 
 
