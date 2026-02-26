@@ -95,7 +95,10 @@ jobs:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           message: |
-              Результат прогона тестов
-              Посмотреть отчёт: https://marinahoruzhaya.github.io/test_jenkins/
+            **Результат прогона тестов**
+            
+           [Посмотреть отчёт](https://marinahoruzhaya.github.io/test_jenkins/)
+
+          format: markdown
 
 
