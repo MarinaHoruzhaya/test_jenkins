@@ -97,7 +97,7 @@ jobs:
           message: |
             **Результат прогона тестов**
             
-           [Посмотреть отчёт](https://marinahoruzhaya.github.io/test_jenkins/)
+            [Посмотреть отчёт](https://marinahoruzhaya.github.io/test_jenkins/)
 
           format: markdown
 
