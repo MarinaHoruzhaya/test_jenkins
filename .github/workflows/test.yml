@@ -4,7 +4,7 @@ on:
   push:
   workflow_dispatch:
   schedule:
-    - cron: '45 9 * * *'
+    - cron: '10 10 * * *'
 
 permissions:
   contents: read
@@ -67,9 +67,6 @@ jobs:
     steps:
       - name: Download workflow artifact
         uses: actions/download-artifact@v4
-        with:
-          name: allure-results
-          path: allure-results
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
       - name: Deploy to GitHub Pages
