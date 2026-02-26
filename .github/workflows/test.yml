@@ -65,8 +65,11 @@ jobs:
     needs: generate-report
     name: Publicate report
     steps:
-      - name: Download all workflow artifact
+      - name: Download workflow artifact
         uses: actions/download-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
       - name: Deploy to GitHub Pages
