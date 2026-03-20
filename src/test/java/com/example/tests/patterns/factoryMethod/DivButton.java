@@ -8,6 +8,6 @@ public class DivButton implements Button {
 
     @Override
     public void doubleClick() {
-        System.out.println("Двойной клик");
+        System.out.println("Двойной клик по div кнопке");
     }
 }
